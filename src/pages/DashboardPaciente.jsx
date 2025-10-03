@@ -134,7 +134,7 @@ export const DashboardPaciente = () => {
                 {upcomingAppointments.length === 0 ? (
         <div className="text-center py-8">
         <p className="text-dark/70 mb-4">Você não tem sessões agendadas.</p>
-        <Link to="/agendamentos">
+        <Link to="/agendamento">
         <Button>{hasHistory ? 'Solicitar novo psicólogo' : 'Solicitar ser paciente'}</Button>
         </Link>
         </div>

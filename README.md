@@ -13,19 +13,19 @@ Sistema web moderno para gestão de consultas psicológicas, desenvolvido com Re
  
 - [Sobre o Projeto](foi feito para ajudar pessoas com problemas psicologicos e atender todos os que precisam)
 - [Funcionalidades](Recursos e ferramentas disponíveis para psicólogos e pacientes)
-- [Tecnologias](Tecnologias utilizadas no desenvolvimento da aplicação.)
-- [Instalação](Passo a passo para configurar e rodar o sistema localmente.)
-- [Uso](Instruções de como utilizar as principais funcionalidades do sistema.)
-- [Estrutura do Projeto](Organização de pastas e arquivos do projeto.)
-- [API Mock](Simulação do backend e exemplos de endpoints disponíveis.)
-- [Chat com IA](Informações sobre o assistente de inteligência artificial integrado.)
-- [Componentes](Lista dos componentes reutilizáveis da interface.)
-- [Rotas](Configuração de rotas públicas e protegidas dentro da aplicação.)
-- [Design System](Paleta de cores, tipografia e padrões visuais do sistema.)
+- [Tecnologias](Tecnologias utilizadas no desenvolvimento da aplicação)
+- [Instalação](Passo a passo para configurar e rodar o sistema localmente)
+- [Uso](Instruções de como utilizar as principais funcionalidades do sistema)
+- [Estrutura do Projeto](Organização de pastas e arquivos do projeto)
+- [API Mock](Simulação do backend e exemplos de endpoints disponíveis)
+- [Chat com IA](Informações sobre o assistente de inteligência artificial integrado)
+- [Componentes](Lista dos componentes reutilizáveis da interface)
+- [Rotas](Configuração de rotas públicas e protegidas dentro da aplicação)
+- [Design System](Paleta de cores, tipografia e padrões visuais do sistema)
  
 ## 🎯 Sobre o Projeto
  
-O **Lunysse** é uma plataforma web desenvolvida para facilitar o agendamento e gestão de consultas psicológicas em ambientes de atendimento voluntário. O sistema oferece interfaces diferenciadas para psicólogos e pacientes, com foco na experiência do usuário e eficiência operacional.
+O Lunysse é uma plataforma web desenvolvida para facilitar o agendamento e gestão de consultas psicológicas em ambientes de atendimento voluntário. O sistema oferece interfaces diferenciadas para psicólogos e pacientes, com foco na experiência do usuário
  
 ### Objetivos
  
@@ -44,23 +44,23 @@ O **Lunysse** é uma plataforma web desenvolvida para facilitar o agendamento e 
 - **Detalhes do Paciente**: Histórico de sessões, anotações e relatórios
 - **Gestão de Sessões**: Edição de status, anotações e relatórios clínicos
 - **Chat com IA**: Assistente especializada em psicologia clínica
-- **Relatórios e Analytics**: Gráficos de frequência, status e alertas de risco
+- **Relatórios e Analytics**: Gráficos de frequência, status e alertas de risco do paciente
 - **Agenda Individual**: Controle de disponibilidade por psicólogo
  
 ### 👤 Para Pacientes
  
 - **Dashboard Simples**: Próximos agendamentos e informações relevantes
-- **Agendamento Flexível**: Escolha de psicólogo, data e horário
+- **Agendamento Flexível**: Escolha de psicólogo, data e horário de sessão
 - **Seleção de Especialista**: Lista de psicólogos com especialidades
 - **Verificação de Disponibilidade**: Horários livres em tempo real
  
 ### 🔐 Sistema de Autenticação
  
-- Login protegido com validação de credenciais.
-- O sistema reconhece automaticamente se o usuário é psicólogo ou paciente.
--Disponível tanto a versão padrão quanto a moderna com efeito glassmorphism.
-- Registro com validação para garantir dados corretos.
-- Estado de login compartilhado em toda a aplicação.
+- Login protegido com validação de credenciais
+- O sistema reconhece se o usuário é psicólogo ou paciente
+- Disponível tanto a versão padrão quanto a moderna
+- Registro com validação para garantir dados certos
+- Estado de login compartilhado em toda a aplicação
 - Rotas protegidas de acordo com o tipo de usuário
  
 ## 🛠 Tecnologias
@@ -141,11 +141,11 @@ http://localhost:5173
  
 ### Fluxo de Uso
  
-1. **Login**:Faça login utilizando uma das contas de teste disponíveis.
-2. **Dashboard**: Confira as informações principais de acordo com o seu perfil.
-3. **Navegação**: Confira as informações principais de acordo com o seu perfil.
-4. **Agendamento** (Pacientes): Utilize a barra lateral para acessar diferentes áreas do sistema.
-5. **Gestão** (Psicólogos):Administre seus pacientes, registre sessões e atualize informações clínicas.
+1. **Login**:Faça login utilizando uma das contas de teste disponíveis
+2. **Dashboard**: Confira as informações principais de acordo com o seu perfil
+3. **Navegação**: Navgeção acessivel e prática
+4. **Agendamento** (Pacientes): Utilize a barra lateral para acessar diferentes áreas
+5. **Gestão** (Psicólogos):Administre seus pacientes, registre sessões e atualize informações clínicas
  
 ## 📁 Estrutura do Projeto
  
@@ -431,32 +431,32 @@ const ProtectedRoute = ({ children }) => {
  
 ### Sistema de Relatórios
  
-- **KPIs Dinâmicos**: Calculados em tempo real
+- **KPIs Dinâmicos**:  KPIs calculados em tempo real
 - **Gráficos Interativos**: Recharts para visualizações
 - **Alertas de Risco**: Baseados em padrões de comportamento
 - **Dados Históricos**: Análise temporal de sessões
  
 ### Chat com IA Especializada
  
-- **Assistente Inteligente**: IA especializada em psicologia clínica
+- **Assistente Inteligente**: IA especializada em psicologia
 - **Respostas Estruturadas**: Formatação markdown automática
 - **Contexto Mantido**: Histórico de conversa preservado
-- **Sugestões Inteligentes**: Perguntas pré-definidas para facilitar uso
+- **Sugestões Inteligentes**: Perguntas pré-feitas para facilitar uso
 - **Tratamento de Erros**: Feedback claro sobre problemas de conexão
  
 ### Gestão de Agenda
  
 - **Disponibilidade Individual**: Cada psicólogo tem sua agenda
 - **Conflito de Horários**: Prevenção automática
-- **Horários Flexíveis**: Configuração de slots disponíveis
+- **Horários Flexíveis**: Configurações disponíveis
 - **Status de Sessões**: Controle completo do ciclo de vida
  
 ### Interface Responsiva
  
-- **Mobile-First**: Design otimizado para dispositivos móveis
+- **Mobile-First**: Design otimizado para dispositivos mobile
 - **Sidebar Adaptativa**: Menu hambúrguer em telas pequenas
-- **Cards Flexíveis**: Layout que se adapta ao conteúdo
-- **Navegação Intuitiva**: UX consistente em todos os dispositivos
+- **Cards Flexíveis**: PaginaS que se adapta ao conteúdo
+- **Navegação Intuitiva**: Consistente em todos os dispositivos
  
 ## 🔧 Scripts Disponíveis
  
@@ -487,12 +487,12 @@ npm install
  
 ## 🔄 Versão Atual
  
-**v1.0.0** - Sistema completo com todas as funcionalidades principais implementadas.
+**v1.0.0** - Sistema completo com todas as funcionalidades
  
 ---
  
 <div align="center">
   <p>Desenvolvido com amor para facilitar o acesso à saúde mental</p>
-  <p><strong>Cuide+ v1.0.0 - Sistema de Agendamento Psicológico</strong></p>
+  <p><strong>Lunysse v1.0.0 - Sistema de Agendamento Psicológico</strong></p>
   <p>React 19 • Vite 7 • Tailwind CSS 4 • Hugging Face AI</p>
 </div>

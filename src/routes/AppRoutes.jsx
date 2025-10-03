@@ -138,7 +138,7 @@ export const AppRoutes = () => {
             <Dashboard /> {/* Escolhe dashboard de psicólogo ou paciente */}
           </ProtectedRoute>
         } />
-        <Route path="/agendamentos" element={
+        <Route path="/agendamento" element={
           <ProtectedRoute>
             <Agendamentos /> {/* Escolhe dashboard de psicólogo ou paciente */}
           </ProtectedRoute>

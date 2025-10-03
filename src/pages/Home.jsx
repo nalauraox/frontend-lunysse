@@ -1,168 +1,147 @@
-// Importações necessárias
-import { Link } from 'react-router-dom'; // Para navegação entre páginas
-import { motion } from 'framer-motion'; // Para animações suaves
-import { Shield, Zap, Users, Calendar, Activity, FileText } from 'lucide-react'; // Ícones vetoriais
-import { Button } from '../components/Button'; // Botão customizado do projeto
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { Shield, Zap, Users, Calendar, Activity, FileText } from 'lucide-react';
+import { Button } from '../components/Button';
 
-// Página inicial (Home)
+const features = [
+  {
+    icon: Calendar,
+    title: 'Agendamentos Descomplicados',
+    description: 'Organize e gerencie compromissos com facilidade e eficiência.',
+  },
+  {
+    icon: Shield,
+    title: 'Segurança em Primeiro Lugar',
+    description: 'Proteção avançada para garantir a confidencialidade dos dados.',
+  },
+  {
+    icon: Activity,
+    title: 'Análises Inteligentes',
+    description: 'Insights automáticos para aprimorar o acompanhamento dos pacientes.',
+  },
+  {
+    icon: Users,
+    title: 'Colaboração Social',
+    description: 'Conecte equipes e instituições em prol da saúde mental comunitária.',
+  },
+  {
+    icon: FileText,
+    title: 'Registro de Sessões',
+    description: 'Documente cada atendimento de forma clara e acessível para consulta.',
+  },
+  {
+    icon: Zap,
+    title: 'Design Empático',
+    description: 'Interface intuitiva e confortável para todos os usuários.',
+  }
+];
+
 export const Home = () => {
-  // Lista de recursos/funcionalidades que serão exibidos na seção de "features"
-  const features = [
-    {
-      icon: Calendar,
-      title: 'Agenda Dinâmica',
-      description: 'Visualização de horários disponíveis com marcação automática e lembretes por e-mail'
-    },
-    {
-      icon: Shield,
-      title: 'Privacidade Garantida',
-      description: 'Autenticação segura via JWT e proteção total dos dados sensíveis dos pacientes'
-    },
-    {
-      icon: Activity,
-      title: 'Análise Inteligente',
-      description: 'Machine Learning para identificar padrões emocionais e agrupar perfis de risco'
-    },
-    {
-      icon: Users,
-      title: 'Impacto Social',
-      description: 'Voltado para projetos voluntários, universidades e ONGs que oferecem apoio psicológico'
-    },
-    {
-      icon: FileText,
-      title: 'Histórico Estruturado',
-      description: 'Registro organizado de sessões com temas, recomendações e evolução do paciente'
-    },
-    {
-      icon: Zap,
-      title: 'Interface Acolhedora',
-      description: 'Design responsivo e acessível, pensado para conforto emocional dos usuários'
-    }
-  ];
+
+  const scrollToFeatures = () => {
+    const el = document.getElementById('features');
+    if(el) el.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
-    <div>
-      {/* ================= HERO SECTION ================= */}
-      <section className="min-h-screen flex items-center justify-center text-center py-20">
-        <div>
-          {/* Animação de entrada do framer-motion */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }} // Início invisível + deslocado
-            animate={{ opacity: 1, y: 0 }}   // Anima até visível + posição normal
-            transition={{ duration: 0.8 }}
-          >
-            {/* Logo centralizada */}
-            <div className="w-32 h-32 rounded-3xl flex items-center justify-center mx-auto mb-3 shadow-2xl overflow-hidden bg-white">
-              <img src="/logo.png" alt="Lunysse" className="w-full h-full object-cover" />
-            </div>
-            
-            {/* Nome do sistema */}
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-              Lunysse
-            </h1>
-            
-            {/* Subtítulo */}
-            <h2 className="text-2xl md:text-3xl font-medium text-white mb-6">
-              Sistema de Agendamento Psicológico
-            </h2>
-            
-            {/* Descrição principal */}
-            <p className="text-xl text-white mb-8 max-w-3xl mx-auto leading-relaxed">
-              Plataforma digital que otimiza o agendamento e gestão de atendimentos psicológicos voluntários. 
-              Desenvolvida para universidades, ONGs e projetos sociais que promovem saúde mental.
-            </p>
-            
-            {/* Botões de ação (CTA) */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              {/* Botão para criar conta */}
-              <Link to="/register">
-                <Button size="lg" className="w-full sm:w-auto">
-                  Começar Agora
-                </Button>
-              </Link>
+    <div className="flex flex-col text-white">
 
-              {/* Botão para rolar até os recursos */}
-              <a href="#features" onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('features').scrollIntoView({ behavior: 'smooth' });
-              }}>
-                <Button variant="secondary" size="lg" className="w-full sm:w-auto">
-                  Conhecer Recursos
-                </Button>
-              </a>
-            </div>
-          </motion.div>
-        </div>
+      {/* SOBRE */}
+      <section className="py-24 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-4xl font-bold mb-6">O que é o Lunysse?</h2>
+          <p className="text-lg leading-relaxed mb-4">
+            Uma plataforma feita para conectar profissionais e pacientes de forma humana e organizada.
+            Pensada para quem oferece atendimento psicológico de forma voluntária ou acadêmica.
+          </p>
+          <p className="text-lg">
+            Nosso propósito é democratizar o acesso à saúde mental com ferramentas simples e eficazes.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+        >
+          <img src="/logo.svg" alt="Mockup Lunysse" loading="lazy" className="rounded-2xl" />
+        </motion.div>
       </section>
 
-      {/* ================= FEATURES SECTION ================= */}
-      <section id="features" className="min-h-screen flex items-center py-20">
-        <div className="w-full">
-          {/* Título da seção */}
-          <div className="text-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }} // Só anima quando o usuário vê no scroll
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                Tecnologia a Serviço do Cuidado
-              </h2>
-              <p className="text-xl text-white max-w-3xl mx-auto">
-                Ferramentas inteligentes para organizar, acompanhar e potencializar atendimentos voluntários
-              </p>
-            </motion.div>
-          </div>
-
-          {/* Grid com os recursos (features) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }} // Cada card aparece ao entrar na tela
-                transition={{ delay: index * 0.1, duration: 0.6 }} // Delay incremental
-                viewport={{ once: true }}
-                className="text-center"
-              >
-                {/* Ícone dentro de um card arredondado */}
-                <div className="w-20 h-20 bg-gradient-to-br from-light to-accent rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-2xl">
-                  <feature.icon className="w-10 h-10 text-white" />
-                </div>
-                {/* Título e descrição do recurso */}
-                <h3 className="text-xl font-bold text-white mb-4">{feature.title}</h3>
-                <p className="text-white leading-relaxed">{feature.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ================= CTA (CALL TO ACTION) SECTION ================= */}
-      <section className="min-h-screen flex items-center py-20">
-        <div className="w-full text-center">
+      {/* FUNCIONALIDADES */}
+      <section id="features" className="py-24 px-6 max-w-7xl mx-auto space-y-20">
+        {features.map((feature, index) => (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }} // Aparece com scroll
-            transition={{ duration: 0.6 }}
+            key={index}
+            className={`grid grid-cols-1 md:grid-cols-2 gap-10 items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.05 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
-              Faça Parte desta Transformação Social
-            </h2>
-            <p className="text-xl text-white mb-12 max-w-3xl mx-auto leading-relaxed">
-              Una tecnologia e responsabilidade social. Ajude a democratizar o acesso 
-              à saúde mental através de uma plataforma pensada para o bem-estar coletivo.
-            </p>
-            {/* Botão para criar conta */}
-            <Link to="/register">
-              <Button size="lg" className="text-xl px-12 py-5 rounded-2xl font-semibold">
-                Criar Conta Gratuita
-              </Button>
-            </Link>
+            <div className="flex items-center justify-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center shadow-md will-change-transform">
+                <feature.icon className="w-10 h-10 text-white" />
+              </div>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-2">{feature.title}</h3>
+              <p className="text-lg">{feature.description}</p>
+            </div>
           </motion.div>
-        </div>
+        ))}
+      </section>
+
+      {/* HERO */}
+      <section className="py-36 text-center max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <div className="w-28 h-28 mx-auto mb-6 p-2 rounded-xl shadow-md">
+            <img src="/logo.png" alt="Lunysse" loading="lazy" className="w-full h-full object-cover" />
+          </div>
+          <h1 className="text-5xl font-bold mb-4">Lunysse</h1>
+          <p className="text-xl max-w-2xl mx-auto mb-10">
+            Plataforma digital para gestão e agendamento psicológico com foco em projetos sociais.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link to="/register">
+              <Button size="lg" className="px-8 text-lg">Criar Conta</Button>
+            </Link>
+            <Link to="/login">
+              <Button variant="secondary" size="lg" className="px-8 text-lg">Acessar Plataforma</Button>
+            </Link>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* CTA FINAL */}
+      <section className="py-20 text-center px-6 max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-4xl font-bold mb-6">Pronto para fazer a diferença?</h2>
+          <p className="text-xl mb-10">
+            Junte-se a uma rede de voluntários, estudantes e profissionais que usam tecnologia para democratizar a saúde mental.
+          </p>
+          <Link to="/register">
+            <Button size="lg" className="text-xl px-10 py-5 rounded-xl font-semibold">
+              Começar Agora Gratuitamente
+            </Button>
+          </Link>
+        </motion.div>
       </section>
     </div>
   );

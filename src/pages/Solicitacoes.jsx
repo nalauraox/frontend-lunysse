@@ -141,9 +141,10 @@ export const Solicitacoes = () => {
 
               {request.notes && (
                 <div className="bg-blue-50 rounded-lg p-3 mb-4">
-                  <p className="text-sm text-blue-800">
-                    <strong>Observações:</strong> {request.notes}
-                  </p>
+                  <div className="text-sm text-blue-800">
+                    <strong>Observações:</strong>
+                    <p>{request.notes}</p>
+                  </div>
                 </div>
               )}
 
