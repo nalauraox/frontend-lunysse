@@ -16,7 +16,7 @@ import { Login } from '../pages/Login';
 import { Register } from '../pages/Register';
 import { NotFound } from '../pages/NotFound';
 
- 
+ /*
 // Páginas protegidas (apenas para usuários autenticados)
 import { DashboardPsicologo } from '../pages/DashboardPsicologo';
 import { DashboardPaciente } from '../pages/DashboardPaciente';
@@ -25,9 +25,9 @@ import { ChatIA } from '../pages/ChatIA';
 import { Relatorios } from '../pages/relatorios';
 import { Solicitacoes } from '../pages/Solicitacoes';
 import { Pacientes } from '../pages/Pacientes';
-import { PacienteDetalhe } from '../pages/PacienteDetalhe';
+import PacienteDetalhes from "../pages/PacienteDetalhes";
 import { SessaoDetalhes } from '../pages/SessaoDetalhes';
-
+*/
 /* ==============================
    Componente de rota protegida
    ============================== */
@@ -110,57 +110,12 @@ export const AppRoutes = () => {
           </PublicRoute>
         } />
         
-        
-        <Route path="/chat-ia" element={
-          <ProtectedRoute >
-            <ChatIA />
-          </ProtectedRoute >
-        } />
-
-        <Route path="/relatorios" element={
-          <ProtectedRoute >
-            <Relatorios />
-          </ProtectedRoute >
-        } />
-
-        <Route path="/solicitacoes" element={
-          <ProtectedRoute >
-            <Solicitacoes />
-          </ProtectedRoute >
-        } />
                 
        
         {/* ==============================
            Rotas Protegidas
            ============================== */}
-        <Route path="/dashboard" element={
-          <ProtectedRoute>
-            <Dashboard /> {/* Escolhe dashboard de psicólogo ou paciente */}
-          </ProtectedRoute>
-        } />
-        <Route path="/agendamento" element={
-          <ProtectedRoute>
-            <Agendamentos /> {/* Escolhe dashboard de psicólogo ou paciente */}
-          </ProtectedRoute>
-        } />
-        <Route path="/pacientes" element={
-          <ProtectedRoute>
-            <Pacientes /> {/* Escolhe dashboard de psicólogo ou paciente */}
-          </ProtectedRoute>
-        } />
-        <Route path="/pacientes/:id" element={
-          <ProtectedRoute>
-            <PacienteDetalhe /> {/* Escolhe dashboard de psicólogo ou paciente */}
-          </ProtectedRoute>
-        } />
-         <Route path="/sessao/:sessionId" element={
-          <ProtectedRoute>
-            <SessaoDetalhes /> {/* Escolhe dashboard de psicólogo ou paciente */}
-          </ProtectedRoute>
-        } />
-
-        <Route path="*" element={<NotFound/>}/>
-      </Routes>
-    </Router>
+        </Routes>
+        </Router>
   );
 };

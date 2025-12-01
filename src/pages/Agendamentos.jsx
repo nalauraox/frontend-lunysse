@@ -16,7 +16,7 @@ import { useAuth } from '../context/AuthContext';
  
 // API mockada para simulação de backend
 // PORQUE: Em desenvolvimento, simulamos um servidor real para testar funcionalidades
-import { mockApi } from '../services/mockApi';
+
  
 // Componentes reutilizáveis do sistema
 // PORQUE: Mantém consistência visual e reduz duplicação de código
