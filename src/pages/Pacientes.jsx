@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { patientService } from '../services/apiService';
 import { Card } from '../components/Card';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import { User, Mail, Phone, Calendar, Activity, CheckCircle } from 'lucide-react';
- 
+
+
 export const Pacientes = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
@@ -14,7 +16,7 @@ export const Pacientes = () => {
   const loadPatients = async () => {
     setLoading(true);
     try {
-      const data = await mockApi.getPatients(user.id);
+      const data = await patientService.getPatients();
       console.log('Pacientes carregados:', data); // Debug
       setPatients(data);
     } catch (error) {

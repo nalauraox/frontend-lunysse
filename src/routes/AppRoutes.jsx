@@ -1,30 +1,27 @@
 // Importação de rotas do React Router
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
- 
 // Importa contexto de autenticação
 import { useAuth } from '../context/AuthContext';
- 
 // Componentes reutilizáveis
 import { Sidebar } from '../components/Sidebar';
 import { PublicNavbar } from '../components/PublicNavbar';
 import { LoadingSpinner } from '../components/LoadingSpinner';
- 
 // Páginas públicas
 import { Home } from '../pages/Home';
 import { About } from '../pages/About';
 import { Login } from '../pages/Login';
 import { Register } from '../pages/Register';
-import { NotFound } from '../pages/NotFound';
-
- /*
 // Páginas protegidas (apenas para usuários autenticados)
 import { DashboardPsicologo } from '../pages/DashboardPsicologo';
 import { DashboardPaciente } from '../pages/DashboardPaciente';
+import { Solicitacoes } from '../pages/Solicitacoes';
 import {Agendamentos}  from '../pages/Agendamentos';
 import { ChatIA } from '../pages/ChatIA';
-import { Relatorios } from '../pages/relatorios';
-import { Solicitacoes } from '../pages/Solicitacoes';
 import { Pacientes } from '../pages/Pacientes';
+
+import { NotFound } from '../pages/NotFound';
+/*
+import { Relatorios } from '../pages/relatorios';
 import PacienteDetalhes from "../pages/PacienteDetalhes";
 import { SessaoDetalhes } from '../pages/SessaoDetalhes';
 */
@@ -33,10 +30,10 @@ import { SessaoDetalhes } from '../pages/SessaoDetalhes';
    ============================== */
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth(); // Obtém usuário e estado de carregamento
- 
+
   if (loading) return <LoadingSpinner size="lg" />; // Mostra spinner enquanto carrega
   if (!user) return <Navigate to="/login" replace />; // Redireciona não autenticados para login
- 
+
   return (
     <div className="min-h-screen flex">
       <Sidebar /> {/* Sidebar lateral sempre visível */}
@@ -46,16 +43,16 @@ const ProtectedRoute = ({ children }) => {
     </div>
   );
 };
- 
+
 /* ==============================
    Componente de rota pública
    ============================== */
 const PublicRoute = ({ children }) => {
   const { user, loading } = useAuth(); // Obtém usuário e estado de carregamento
- 
+
   if (loading) return <LoadingSpinner size="lg" />; // Mostra spinner enquanto carrega
   if (user) return <Navigate to="/dashboard" replace />; // Redireciona usuário logado para dashboard
- 
+
   return (
     <div className="min-h-screen">
       <PublicNavbar /> {/* Navbar pública */}
@@ -65,7 +62,7 @@ const PublicRoute = ({ children }) => {
     </div>
   );
 };
- 
+
 /* ==============================
    Componente Dashboard condicional
    ============================== */
@@ -74,7 +71,7 @@ const Dashboard = () => {
   // Retorna dashboard específico baseado no tipo do usuário
   return user?.type === 'psicologo' ? <DashboardPsicologo /> : <DashboardPaciente />;
 };
- 
+
 /* ==============================
    Configuração de rotas da aplicação
    ============================== */
@@ -82,7 +79,7 @@ export const AppRoutes = () => {
   return (
     <Router>
       <Routes>
- 
+
         {/* ==============================
            Rotas Públicas
            ============================== */}
@@ -91,31 +88,57 @@ export const AppRoutes = () => {
             <Home />
           </PublicRoute>
         } />
-       
+
         <Route path="/about" element={
           <PublicRoute>
             <About />
           </PublicRoute>
         } />
-       
+
         <Route path="/login" element={
           <PublicRoute>
             <Login />
           </PublicRoute>
         } />
-       
+
         <Route path="/register" element={
           <PublicRoute>
             <Register />
           </PublicRoute>
         } />
-        
-                
-       
+
+
+
         {/* ==============================
            Rotas Protegidas
            ============================== */}
-        </Routes>
-        </Router>
+
+        <Route path="/dashboard" element={
+          <ProtectedRoute>
+            <Dashboard /> {/* Escolhe dashboard de psicólogo ou paciente */}
+          </ProtectedRoute>
+        } />
+        <Route path="chat-ia" element={
+          <ProtectedRoute>
+            <ChatIA /> 
+          </ProtectedRoute>
+        } />
+        <Route path="agendamentos" element={
+          <ProtectedRoute>
+            <Agendamentos /> 
+          </ProtectedRoute>
+        } />
+        <Route path="solicitacoes" element={
+          <ProtectedRoute>
+            <Solicitacoes /> 
+          </ProtectedRoute>
+        } />
+         <Route path="pacientes" element={
+          <ProtectedRoute>
+            <Pacientes /> 
+          </ProtectedRoute>
+        } />
+      </Routes>
+    </Router>
   );
 };
